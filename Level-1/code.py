@@ -28,7 +28,7 @@ def validorder(order: Order):
             payments.append(("product",item.amount * item.quantity))
         else:
             return("Invalid item type: %s" % item.type)
-
+    print(payments)
     for payment in payments:
         if payment[0] == "product":
             product_cost += payment[1]
