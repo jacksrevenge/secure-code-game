@@ -24,5 +24,11 @@ class TestOnlineStore(unittest.TestCase):
         order_3 = c.Order(id='3', items=[payment, tv, reimbursement])
         self.assertEqual(c.validorder(order_3), 'Order ID: 3 - Payment imbalance: $-1000.00')
 
+    def test_4(self):
+        tv = c.Item(type='product', description='tv', amount=1000.00, quantity=3)
+        payment = c.Item(type='payment', description='invoice_4', amount=1000.00, quantity=3)
+        order_1 = c.Order(id='4', items=[payment, tv])
+        self.assertEqual(c.validorder(order_1), 'Order ID: 4 - Full payment received!')
+
 if __name__ == '__main__':
     unittest.main()
